@@ -91,7 +91,7 @@ const Contact = () => {
         multiline
       />
 {/* <View style={{ backgroundColor:"red", width:"200" }}> <Text>hello</Text></View> */}
-<View style={{width: '100%', height: '100%', background: '#197A93', boxShadow: '200px 200px 200px ', filter: 'blur(200px)'}}></View>
+{/* <View style={{width: '100%', height: '100%', background: '#197A93', boxShadow: '200px 200px 200px ', filter: 'blur(200px)'}}></View> */}
  
       <TouchableOpacity style={styles.button} onPress={handleSubmission}>
         <Text style={styles.buttonText}>Submit</Text>
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    backgroundColor:'#13102C',
+    backgroundColor:'#d2cdff',
     resizeMode: 'cover',
     justifyContent: 'center',
   },
