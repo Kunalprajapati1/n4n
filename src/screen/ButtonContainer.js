@@ -56,7 +56,7 @@ const ButtonContainer = () => {
         />
       </View>
       <IconButton
-        onPress={() => navigateToPage('Login')}
+        onPress={() => navigateToPage('Search')}
         source={require('../../assets/search.png')}
         style={styles.searchButton}
       />

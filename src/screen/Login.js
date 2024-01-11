@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, TextInput, Image } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, TextInput, Image,ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
@@ -67,7 +67,7 @@ const Login = () => {
       <View style={styles.container}>
         <View style={styles.inputContainer}>
           <Image source={require('../../assets/login.png')} style={styles.logo} />
-
+          <ScrollView>
           <TextInput
             style={styles.input}
             placeholder="Gmail/Mobile"
@@ -102,7 +102,7 @@ const Login = () => {
           <Text style={styles.text3}>Want to create an account?</Text>
           <TouchableOpacity style={styles.signupText} onPress={navigateToSignup}>
             <Text style={styles.lo2}>Sign up</Text>
-          </TouchableOpacity>
+          </TouchableOpacity></ScrollView>
         </View>
       </View>
     </ImageBackground>
@@ -120,7 +120,8 @@ const styles = StyleSheet.create({
 color:'#7242d8',
 fontSize:18,
 fontWeight:'bold',
-textDecorationLine: 'underline'
+textDecorationLine: 'underline',
+textAlign:'center',
 
 
   },
@@ -128,7 +129,7 @@ textDecorationLine: 'underline'
 
 marginTop:'8%',
 fontSize:18,
-
+textAlign:'center',
   },
   container: {
     flex: 1,
@@ -139,8 +140,10 @@ fontSize:18,
   inputContainer: {
     width: '93%', // Adjusted width to make it visually appealing
     backgroundColor: 'rgba(76, 120, 186, 0.543)',
-    borderRadius: 20, // Increased border-radius for a smoother look
+    borderRadius: 80, // Increased border-radius for a smoother look
     padding: 20,
+    height:'75%',
+    borderTopLeftRadius:2,
     alignItems: 'center',
   },
   logo: {
@@ -150,9 +153,10 @@ fontSize:18,
   },
   input: {
     height: 50,
+    borderRightWidth: 22,
     width: '100%',
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    borderRadius: 15,
+    borderRadius: 35,
     padding: 10,
     marginBottom: 15,
     color: '#333',
@@ -162,7 +166,8 @@ fontSize:18,
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
     padding: 10,
-    borderRadius: 15,
+    borderRightWidth:18 ,
+    borderRadius: 35,
     marginTop: 20,
     width: '100%',
     justifyContent: 'center',

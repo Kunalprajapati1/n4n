@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, TextInput, Image, Animated, KeyboardAvoidingView, Platform, Alert, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { ScrollView } from 'react-native';
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
@@ -92,11 +93,11 @@ const Signup = () => {
       >
         <Animated.View style={[styles.inputContainer, { opacity: animatedValue }]}>
           <Image source={require('../../assets/signup.png')} style={styles.logo} />
-
+<ScrollView>
           <TextInput
             style={styles.input}
             placeholder="First Name"
-            placeholderTextColor="#fff"
+            placeholderTextColor="#000000"
             value={firstName}
             onChangeText={(text) => setFirstName(text)}
           />
@@ -104,7 +105,7 @@ const Signup = () => {
           <TextInput
             style={styles.input}
             placeholder="Last Name"
-            placeholderTextColor="#fff"
+            placeholderTextColor="#000000"
             value={lastName}
             onChangeText={(text) => setLastName(text)}
           />
@@ -112,7 +113,7 @@ const Signup = () => {
           <TextInput
             style={styles.input}
             placeholder="Mobile Number"
-            placeholderTextColor="#fff"
+            placeholderTextColor="#000000"
             keyboardType="phone-pad"
             value={mobileNumber}
             onChangeText={(text) => setMobileNumber(text)}
@@ -121,7 +122,7 @@ const Signup = () => {
           <TextInput
             style={styles.input}
             placeholder="Email"
-            placeholderTextColor="#fff"
+            placeholderTextColor="#000000"
             keyboardType="email-address"
             value={email}
             onChangeText={(text) => setEmail(text)}
@@ -130,7 +131,7 @@ const Signup = () => {
           <TextInput
             style={styles.input}
             placeholder="Password"
-            placeholderTextColor="#fff"
+            placeholderTextColor="#000000"
             secureTextEntry
             value={password}
             onChangeText={(text) => setPassword(text)}
@@ -148,7 +149,7 @@ const Signup = () => {
             <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold', fontSize: 16, color: '#000ea3' }}>
               Already have an account? Log in
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity></ScrollView>
         </Animated.View>
       </KeyboardAvoidingView>
     </ImageBackground>
@@ -169,10 +170,12 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   inputContainer: {
-    width: '90%',
+    width: '95%',
+    height:'85%',
     backgroundColor: 'rgba(76, 120, 186, 0.543)',
-    borderRadius: 20,
-    
+    borderRadius: 80,
+   
+    borderTopLeftRadius:2,
     padding: 20,
     alignItems: 'center',
   },
@@ -183,9 +186,10 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
+    borderRightWidth:22,
     width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.671)',
-    borderRadius: 13,
+    backgroundColor: 'rgba(255, 255, 255, 0.671)',
+    borderRadius: 33,
     padding: 10,
     marginBottom: 23,
     color: '#ffffff',

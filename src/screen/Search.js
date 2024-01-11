@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, TextInput, ImageBackground } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Image, TextInput, ImageBackground, Animated } from 'react-native';
 
 const globalStyles = {
   text: {
@@ -10,7 +10,7 @@ const globalStyles = {
 };
 
 const ngoNames = [
-  'Compassionate Connections Coalition',
+  'Compassionate Connections ',
   'Hope Horizons Network',
   'Unity Upliftment Alliance',
   'Empowerment Endeavors Society',
@@ -77,25 +77,39 @@ const ngoData = [
 
 const NgoCard = ({ name, location, description, onPress, isSelected }) => {
   const cardStyle = isSelected ? styles.selectedCard : {};
+  const fadeAnim = new Animated.Value(0);
+
+  useEffect(() => {
+    Animated.timing(
+      fadeAnim,
+      {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: false,
+      }
+    ).start();
+  }, [fadeAnim]);
+
+  const animatedStyle = {
+    
+  };
 
   return (
-    <TouchableOpacity
-      style={[styles.cardContainer, cardStyle]}
-      onPress={onPress}
-    >
-      <Image
-        source={require('../../assets/sys2.jpg')}
+    <Animated.View style={[styles.cardContainer, cardStyle, animatedStyle]}>
+      <ImageBackground
+        source={require('../../assets/download1.png')}
         style={styles.cardImage}
-      />
-      <View style={styles.cardContent}>
-        <Text style={styles.cardTitle}>{name}</Text>
-        <Text style={styles.cardLocation}>{location}</Text>
-        <Text style={styles.cardDescription} numberOfLines={3}>{description}</Text>
-        <TouchableOpacity onPress={onPress} style={styles.viewButton}>
-          <Text style={styles.buttonText}>View More</Text>
-        </TouchableOpacity>
-      </View>
-    </TouchableOpacity>
+      >
+        <View style={styles.overlay}>
+          <Text style={styles.cardTitle}>{name}</Text>
+          <Text style={styles.cardLocation}>{location}</Text>
+          <Text style={styles.cardDescription} numberOfLines={3}>{description}</Text>
+          <TouchableOpacity onPress={onPress} style={styles.viewButton}>
+            <Text style={styles.buttonText}>View More</Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
+    </Animated.View>
   );
 };
 
@@ -148,13 +162,12 @@ const Search = () => {
     </ImageBackground>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000000',
     padding: 16,
-    paddingTop: 60, // Adjust this value to create more space at the top
+    paddingTop: 60,
   },
   scrollView: {
     flex: 1,
@@ -164,7 +177,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 15,
+    borderRadius: 25,
     marginBottom: 20,
     paddingVertical: 8,
     paddingHorizontal: 16,
@@ -188,7 +201,7 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     backgroundColor: '#fff',
-    borderRadius: 15,
+    borderRadius: 32,
     marginTop: 15,
     marginBottom: 20,
     shadowColor: '#932f2f',
@@ -197,42 +210,47 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 50,
     position: 'relative',
-    flexDirection: 'row', // Set flexDirection to row
+    flexDirection: 'row',
   },
   selectedCard: {
     backgroundColor: '#9aefe5',
   },
   cardImage: {
-    width: '40%', // Adjust the width as needed
-    height: '100%', // Adjust the height as needed
-    borderTopLeftRadius: 8,
-    borderBottomLeftRadius: 8,
-    resizeMode: 'cover',
+    width: '100%',
+    height: 200,
+    borderRadius: 32,
+    overflow: 'hidden',
   },
-  cardContent: {
+  overlay: {
     flex: 1,
+    backgroundColor: 'rgba(11, 52, 64, 0.728)',
     padding: 16,
+    justifyContent: 'flex-end',
   },
   cardTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
+   
+    textAlign:'center',
+    color: '#fff',
   },
   cardLocation: {
     fontSize: 16,
+    fontWeight:'bold',
     marginTop: 8,
-    color: '#555',
+    textAlign:'center',
+    color: '#fff',
   },
   cardDescription: {
-    fontSize: 14,
+    fontSize: 12,
     marginTop: 3,
-    color: '#777',
+    color: '#fff',
   },
   viewButton: {
-    backgroundColor: globalStyles.primaryColor,
+    backgroundColor: '#062b06',
     paddingVertical: 12,
     paddingHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: 18,
     alignItems: 'center',
     marginTop: 16,
   },
