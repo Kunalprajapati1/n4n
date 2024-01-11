@@ -1,18 +1,22 @@
-
-
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, TextInput, Image,ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import {useFonts} from 'expo-font'
 const Login = () => {
-
-
- 
-    const [emailOrMobile, setEmailOrMobile] = useState('');
+  const [emailOrMobile, setEmailOrMobile] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null); // State to store user details
   const navigation = useNavigation();
-
+  const [fontsLoaded] = useFonts({
+    'Dbold': require('../../assets/fonts/DancingScript-Bold.ttf'),
+    'DMedium': require('../../assets/fonts/DancingScript-Medium.ttf'),
+    'Dregular': require('../../assets/fonts/DancingScript-Regular.ttf'),
+    'DSemibold': require('../../assets/fonts/DancingScript-SemiBold.ttf'),
+    'semibold' : require('../../assets/fonts/Montserrat-SemiBold.ttf'),
+    'Regular' : require('../../assets/fonts/Montserrat-Regular.ttf'),
+    'Bold' : require('../../assets/fonts/Montserrat-Bold.ttf'),
+    
+  })
   const handleLogin = async () => {
     try {
       const authenticatedUser = await authenticateUser(emailOrMobile, password);
@@ -75,7 +79,7 @@ const Login = () => {
           <ScrollView>
           <TextInput
             style={styles.input}
-            placeholder="E-mail/Mobile"
+            placeholder="Gmail/Mobile"
             placeholderTextColor="#333"
             value={emailOrMobile}
             onChangeText={(text) => setEmailOrMobile(text)}
@@ -101,7 +105,7 @@ const Login = () => {
 
           <TouchableOpacity style={styles.loginButton} onPress={loginWithFacebook}>
             <Image source={require('../../assets/facebook.png')} style={styles.icon} />
-            <Text style={{fontFamily: "Regular"}}>Login with Facebook</Text>
+            <Text style={styles.loginButtonText}>Login with Facebook</Text>
           </TouchableOpacity>
 
           <Text style={styles.text3}>Want to create an account?</Text>
@@ -117,25 +121,24 @@ const Login = () => {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    backgroundColor:'#51b9cdb1',
+    backgroundColor:'#6aacad8c',
     resizeMode: 'cover',
     justifyContent: 'center',
   },
   lo2:{
 color:'#7242d8',
 fontSize:18,
-// fontWeight:'bold',
+fontFamily: "Regular",
 textDecorationLine: 'underline',
 textAlign:'center',
-// fontFamily:"Regular",
+
 
   },
   text3:{
-
+    fontFamily: "Regular",
 marginTop:'8%',
 fontSize:18,
 textAlign:'center',
-// fontFamily:"Regular",
   },
   container: {
     flex: 1,
@@ -145,9 +148,10 @@ textAlign:'center',
   },
   inputContainer: {
     width: '93%', // Adjusted width to make it visually appealing
-    backgroundColor: 'rgba(76, 120, 186, 0.229)',
+    backgroundColor: 'rgba(76, 120, 186, 0.543)',
     borderRadius: 80, // Increased border-radius for a smoother look
     padding: 20,
+    borderBottomRightRadius:2,
     height:'75%',
     borderTopLeftRadius:2,
     alignItems: 'center',
@@ -160,13 +164,13 @@ textAlign:'center',
   input: {
     height: 50,
     borderRightWidth: 22,
+    fontFamily: "Regular",
     width: '100%',
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
     borderRadius: 35,
     padding: 10,
     marginBottom: 15,
     color: '#333',
-    // fontFamily:"Regular",
   },
   loginButton: {
     flexDirection: 'row',
@@ -187,10 +191,12 @@ textAlign:'center',
   loginButtonText: {
     fontSize: 16,
     color: '#333',
+    fontFamily: "Regular",
   },
   signupText: {
     color: '#05166a',
     marginTop: 10,
+    fontFamily: "Regular",
   },
 });
 

@@ -2,15 +2,24 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, TextInput, Image, Animated, KeyboardAvoidingView, Platform, Alert, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
-
-const Signup = () => {
+import {useFonts} from 'expo-font'
+const Sign = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false); // New state for loading
-
+  const [fontsLoaded] = useFonts({
+    'Dbold': require('../../assets/fonts/DancingScript-Bold.ttf'),
+    'DMedium': require('../../assets/fonts/DancingScript-Medium.ttf'),
+    'Dregular': require('../../assets/fonts/DancingScript-Regular.ttf'),
+    'DSemibold': require('../../assets/fonts/DancingScript-SemiBold.ttf'),
+    'semibold' : require('../../assets/fonts/Montserrat-SemiBold.ttf'),
+    'Regular' : require('../../assets/fonts/Montserrat-Regular.ttf'),
+    'Bold' : require('../../assets/fonts/Montserrat-Bold.ttf'),
+    
+  })
   const navigation = useNavigation();
 
   const shouldAnimate = firstName === '' && lastName === '' && mobileNumber === '' && email === '' && password === '';
@@ -146,7 +155,7 @@ const Signup = () => {
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.loginText} onPress={navigateToLogin}>
-            <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold', fontSize: 16, color: '#000ea3' }}>
+            <Text style={{ textDecorationLine: 'underline', fontSize: 16, color: '#000ea3',  fontFamily: "Regular", }}>
               Already have an account? Log in
             </Text>
           </TouchableOpacity></ScrollView>
@@ -174,7 +183,7 @@ const styles = StyleSheet.create({
     height:'85%',
     backgroundColor: 'rgba(76, 120, 186, 0.543)',
     borderRadius: 80,
-   
+    borderBottomLeftRadius:2,
     borderTopLeftRadius:2,
     padding: 20,
     alignItems: 'center',
@@ -191,6 +200,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.671)',
     borderRadius: 33,
     padding: 10,
+    fontFamily: "Regular",
     marginBottom: 23,
     color: '#ffffff',
   },
@@ -205,12 +215,13 @@ const styles = StyleSheet.create({
   signupButtonText: {
     fontSize: 18,
     color: '#ffffff',
-    fontWeight: 'bold',
+    fontFamily: "Regular",
   },
   loginText: {
     marginTop: 20,
+    fontFamily: "Regular",
     
   },
 });
 
-export default Signup;
+export default Sign;

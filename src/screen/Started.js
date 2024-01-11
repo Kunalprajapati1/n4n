@@ -40,7 +40,7 @@ if(!fontsLoaded){
       <View style={styles.overlay}>
         <Animatable.Text animation="fadeIn" duration={5000} style={styles.text1}>
         
-        <Text style ={{ fontFamily: "Regular",color: 'white' }}>Let's unite to end global food waste!</Text>
+        <Text style ={{ fontFamily: "Dbold",color: 'white',fontSize:39, }}>Let's unite to end global food waste!</Text>
       
         {/* <Text style ={{ fontFamily: "Dbold",color: 'white' }}>Hello</Text>
         <Text style ={{ fontFamily: "Dregular",color: 'white' }}>Hello</Text>
@@ -49,7 +49,7 @@ if(!fontsLoaded){
           
         </Animatable.Text>
         <Animatable.Text animation="fadeIn" duration={5000} delay={600} style={styles.text2}>
-        <Text style ={{ fontFamily: "Regular",color: 'white' }}>Start with Need4Need</Text>
+        <Text style ={{ fontFamily: "Regular",color: 'white',fontSize:18, }}>Start with Need4Need</Text>
           
         </Animatable.Text>
         <TouchableOpacity onPress={() => navigateToPage('Again')} style={styles.button}>

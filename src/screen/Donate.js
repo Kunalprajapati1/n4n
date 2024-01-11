@@ -97,7 +97,7 @@ const Donate = () => {
       />
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.dataContainer}>
-          <Text style={styles.title}>d</Text>
+          <Text style={styles.title}>Donate Food</Text>
           <TextInput
             value={name}
             onChangeText={(text) => setName(text)}

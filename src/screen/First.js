@@ -1,10 +1,11 @@
 // Import necessary modules
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Image, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
+import Search from '../screen/Search'; 
 // Import the ButtonContainer component
 import ButtonContainer from './ButtonContainer';
+import { ScrollView } from 'react-native';
 
 // Define the First component
 const First = () => {
@@ -43,11 +44,11 @@ const First = () => {
   return (
     <View style={styles.screen}>
       <View style={styles.pageContainer}>
-        <Image
-          source={require('../../assets/don.png')}
-          style={styles.backgroundImage}
-          resizeMode="cover"
-        />
+       
+      
+           <ScrollView style={styles.feacrh}>
+     <Search/>
+      </ScrollView>
 
         <TouchableOpacity onPress={toggleMenu} style={styles.menuIcon} activeOpacity={0.7}>
           <Text style={styles.menuText}>{menuOpen ? '' : '≡'}</Text>
@@ -88,10 +89,11 @@ const First = () => {
               </View>
             </View>
           </Animated.View>
+           
         )}
       </View>
 
-      {/* Render the ButtonContainer component */}
+    
       <View style={styles.buttonContainer}>
         <ButtonContainer />
       </View>
@@ -102,20 +104,25 @@ const First = () => {
 // Define the styles
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: '#ffffffc8',
     flex: 1,
   },
   pageContainer: {
     flex: 1,
-    backgroundColor: '#232323',
+    backgroundColor: '#000000f6', // Set the background color to be transparent
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  fearch:{
+    flexDirection: 'row',
+    padding:7,
+   
+   
+  },
   menuIcon: {
     position: 'absolute',
     top: '4%',
-    right: 10,
+    right: 5,
     padding: 10,
     backgroundColor: '#4293b300',
   },
@@ -131,6 +138,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3a75879f',
     borderBlockColor: 'blue',
     padding: 15,
+    
     borderRadius: 10,
     width: '70%',
     justifyContent: 'center',
@@ -208,6 +216,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     width: '140%',
     height: '140%',
+    opacity:0,
   },
   navBar: {
     backgroundColor: '#a6bdb3c8',

@@ -192,7 +192,7 @@ const Skip = ({ navigation }) => {
 
           {/* Header text */}
           <Text style={styles.headerText}>
-          <Text style={{ fontFamily: "Regular",color: 'white' }}>
+          <Text style={{ fontFamily: "Dbold",color: 'white' }}>
             
             Donate the food with ease
           
