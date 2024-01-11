@@ -1,4 +1,7 @@
 // Import necessary modules
+import { useFonts } from "expo-font";
+
+
 import React, { useState } from 'react';
 import {
   View,
@@ -24,6 +27,15 @@ const { width, height } = Dimensions.get('window');
 
 // Component definition
 const Skip = ({ navigation }) => {
+
+  const [fontsLoaded] = useFonts({
+    DSemibold: require("../../assets/fonts/DancingScript-SemiBold.ttf"),
+    semibold: require("../../assets/fonts/Montserrat-SemiBold.ttf"),
+    Regular: require("../../assets/fonts/Montserrat-Regular.ttf"),
+    Bold: require("../../assets/fonts/Montserrat-Bold.ttf"),
+  });
+
+  
   // State variables for form fields
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -158,6 +170,11 @@ const Skip = ({ navigation }) => {
   const deg2rad = (deg) => deg * (Math.PI / 180);
 
   // Component rendering
+
+
+  if (!fontsLoaded) {
+    return null; // Or render a loading indicator
+  }
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -169,12 +186,18 @@ const Skip = ({ navigation }) => {
         contentContainerStyle={styles.scrollContainer}
         scrollEnabled={true}
       >
-        < ScrollView style={styles.container}>
+        <ScrollView style={styles.container}>
           {/* Status bar */}
           <StatusBar barStyle="light-content" backgroundColor="#120C2C" />
 
           {/* Header text */}
-          <Text style={styles.headerText}>Donate the food with ease</Text>
+          <Text style={styles.headerText}>
+          <Text style={{ fontFamily: "Regular",color: 'white' }}>
+            
+            Donate the food with ease
+          
+            </Text>
+            </Text>
 
           {/* Input boxes and labels */}
           <Animatable.View animation="fadeIn" duration={2000} style={styles.inputContainer}>
@@ -272,6 +295,7 @@ const styles = StyleSheet.create({
     marginTop:'10%',
   },
   payNowButtonText: {
+    fontFamily:"Regular",
     color: 'white',
     fontSize: width * 0.04,
   },
@@ -297,6 +321,7 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
     color: 'white',
     textAlign: 'center',
+    padding:"2%",
     marginTop: StatusBar.currentHeight + height * 0.05,
   },
   inputContainer: {
@@ -308,6 +333,7 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.035,
   },
   input: {
+    fontFamily:"Regular",
     height: height * 0.065,
     borderColor: '#ffffffff',
     borderWidth: 2,
@@ -346,12 +372,18 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: width * 0.04,
+    fontFamily:"Regular",
+
   },
   buttonText2: {
     color: 'white',
-    fontSize: width * 0.07,
-    fontWeight:'bold',
-    marginBottom:'2%',
+    // fontSize: width * 0.07,
+    // fontWeight:'bold',
+    marginBottom:'4%',
+    marginTop:"1%",
+    fontFamily:"Regular",
+
+    textDecorationLine: 'underline',
   },
 });
 

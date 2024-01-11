@@ -1,8 +1,28 @@
+import {useFonts} from 'expo-font'
+
+
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, TextInput, Image,ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
+
+
+  const [fontsLoaded] = useFonts({
+    // 'Dbold': require('../../assets/fonts/DancingScript-Bold.ttf'),
+    // 'DMedium': require('../../assets/fonts/DancingScript-Medium.ttf'),
+    // 'Dregular': require('../../assets/fonts/DancingScript-Regular.ttf'),
+    'DSemibold': require('../../assets/fonts/DancingScript-SemiBold.ttf'),
+    'semibold' : require('../../assets/fonts/Montserrat-SemiBold.ttf'),
+    'Regular' : require('../../assets/fonts/Montserrat-Regular.ttf'),
+    'Bold' : require('../../assets/fonts/Montserrat-Bold.ttf'),
+    
+  })
+  
+  
+  if(!fontsLoaded){
+    return null;
+  }
   const [emailOrMobile, setEmailOrMobile] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null); // State to store user details
@@ -70,7 +90,7 @@ const Login = () => {
           <ScrollView>
           <TextInput
             style={styles.input}
-            placeholder="Gmail/Mobile"
+            placeholder="E-mail/Mobile"
             placeholderTextColor="#333"
             value={emailOrMobile}
             onChangeText={(text) => setEmailOrMobile(text)}
@@ -96,7 +116,7 @@ const Login = () => {
 
           <TouchableOpacity style={styles.loginButton} onPress={loginWithFacebook}>
             <Image source={require('../../assets/facebook.png')} style={styles.icon} />
-            <Text style={styles.loginButtonText}>Login with Facebook</Text>
+            <Text style={{fontFamily: "Regular"}}>Login with Facebook</Text>
           </TouchableOpacity>
 
           <Text style={styles.text3}>Want to create an account?</Text>
@@ -112,17 +132,17 @@ const Login = () => {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    backgroundColor:'#6aacad8c',
+    backgroundColor:'#51b9cdb1',
     resizeMode: 'cover',
     justifyContent: 'center',
   },
   lo2:{
 color:'#7242d8',
 fontSize:18,
-fontWeight:'bold',
+// fontWeight:'bold',
 textDecorationLine: 'underline',
 textAlign:'center',
-
+fontFamily:"Regular",
 
   },
   text3:{
@@ -130,6 +150,7 @@ textAlign:'center',
 marginTop:'8%',
 fontSize:18,
 textAlign:'center',
+fontFamily:"Regular",
   },
   container: {
     flex: 1,
@@ -139,7 +160,7 @@ textAlign:'center',
   },
   inputContainer: {
     width: '93%', // Adjusted width to make it visually appealing
-    backgroundColor: 'rgba(76, 120, 186, 0.543)',
+    backgroundColor: 'rgba(76, 120, 186, 0.229)',
     borderRadius: 80, // Increased border-radius for a smoother look
     padding: 20,
     height:'75%',
@@ -160,6 +181,7 @@ textAlign:'center',
     padding: 10,
     marginBottom: 15,
     color: '#333',
+    fontFamily:"Regular",
   },
   loginButton: {
     flexDirection: 'row',
