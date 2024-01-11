@@ -1,4 +1,3 @@
-import {useFonts} from 'expo-font'
 
 
 import React, { useState } from 'react';
@@ -8,22 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 const Login = () => {
 
 
-  const [fontsLoaded] = useFonts({
-    // 'Dbold': require('../../assets/fonts/DancingScript-Bold.ttf'),
-    // 'DMedium': require('../../assets/fonts/DancingScript-Medium.ttf'),
-    // 'Dregular': require('../../assets/fonts/DancingScript-Regular.ttf'),
-    'DSemibold': require('../../assets/fonts/DancingScript-SemiBold.ttf'),
-    'semibold' : require('../../assets/fonts/Montserrat-SemiBold.ttf'),
-    'Regular' : require('../../assets/fonts/Montserrat-Regular.ttf'),
-    'Bold' : require('../../assets/fonts/Montserrat-Bold.ttf'),
-    
-  })
-  
-  
-  if(!fontsLoaded){
-    return null;
-  }
-  const [emailOrMobile, setEmailOrMobile] = useState('');
+ 
+    const [emailOrMobile, setEmailOrMobile] = useState('');
   const [password, setPassword] = useState('');
   const [user, setUser] = useState(null); // State to store user details
   const navigation = useNavigation();
@@ -142,7 +127,7 @@ fontSize:18,
 // fontWeight:'bold',
 textDecorationLine: 'underline',
 textAlign:'center',
-fontFamily:"Regular",
+// fontFamily:"Regular",
 
   },
   text3:{
@@ -150,7 +135,7 @@ fontFamily:"Regular",
 marginTop:'8%',
 fontSize:18,
 textAlign:'center',
-fontFamily:"Regular",
+// fontFamily:"Regular",
   },
   container: {
     flex: 1,
@@ -181,7 +166,7 @@ fontFamily:"Regular",
     padding: 10,
     marginBottom: 15,
     color: '#333',
-    fontFamily:"Regular",
+    // fontFamily:"Regular",
   },
   loginButton: {
     flexDirection: 'row',
