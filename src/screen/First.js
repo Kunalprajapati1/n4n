@@ -46,7 +46,7 @@ const First = () => {
       <View style={styles.pageContainer}>
        
       
-           <ScrollView style={styles.feacrh}>
+           <ScrollView style={styles.fearch}>
      <Search/>
       </ScrollView>
 
@@ -114,9 +114,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fearch:{
-    flexDirection: 'row',
-    padding:7,
-   
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
    
   },
   menuIcon: {

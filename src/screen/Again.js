@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     position: 'absolute',
     height: '170%',
+    width: '100%',
   },
   text3: {
     color: 'white',

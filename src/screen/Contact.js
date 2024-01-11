@@ -120,7 +120,7 @@ const Contact = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
-      <ImageBackground source={bgImage} style={styles.background}>
+      <ImageBackground source={null} style={styles.background}>
         <View style={styles.overlay}>
           {submitted ? renderThankYou() : renderForm()}
         </View>

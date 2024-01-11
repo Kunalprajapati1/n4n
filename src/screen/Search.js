@@ -130,7 +130,7 @@ const Search = () => {
 
   return (
     <ImageBackground
-      source={require('../../assets/donate.png')}
+      source={require('../../assets/again.jpg')}
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
@@ -165,7 +165,7 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    // backgroundColor: '#000000',
     padding: 16,
     paddingTop: 60,
   },
@@ -181,11 +181,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingVertical: 8,
     paddingHorizontal: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 6,
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: 2 },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 4,
+    // elevation: 6,
   },
   searchIcon: {
     width: 24,
@@ -204,11 +204,11 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     marginTop: 15,
     marginBottom: 20,
-    shadowColor: '#932f2f',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 50,
+    // shadowColor: '#932f2f',
+    // shadowOffset: { width: 0, height: 4 },
+    // shadowOpacity: 0.1,
+    // shadowRadius: 4,
+    // elevation: 50,
     position: 'relative',
     flexDirection: 'row',
   },
@@ -259,9 +259,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
+    flex: 3,
+    resizeMode:'cover',
+    position: 'absolute',
+    height:'190%',
+  
   },
 });
 

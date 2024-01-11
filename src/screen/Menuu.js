@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
 
 
-const First = () => {
+const Menuu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const slideAnim = new Animated.Value(0);
 
@@ -224,4 +224,4 @@ height:'140%',
   },
 });
 
-export default First;
+export default Menuu;

@@ -189,7 +189,7 @@ const Skip = ({ navigation }) => {
         <ScrollView style={styles.container}>
           {/* Status bar */}
           <StatusBar barStyle="light-content" backgroundColor="#120C2C" />
-
+          <Image source={require('../../assets/again.jpg')} style={styles.backgroundImage} />
           {/* Header text */}
           <Text style={styles.headerText}>
           <Text style={{ fontFamily: "Dbold",color: 'white' }}>
@@ -202,6 +202,7 @@ const Skip = ({ navigation }) => {
           {/* Input boxes and labels */}
           <Animatable.View animation="fadeIn" duration={2000} style={styles.inputContainer}>
             <Animatable.View animation="fadeIn" duration={2000} delay={200} style={styles.inputWrapper}>
+           
               <TextInput
                 style={styles.input}
                 placeholder="Enter your name"
@@ -284,6 +285,14 @@ const Skip = ({ navigation }) => {
 
 // Styles
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 3,
+    resizeMode:'cover',
+    position: 'absolute',
+    height:'190%',
+    width: '150%',
+  
+  },
   payNowButton: {
     backgroundColor: '#7B7DDB',
     borderRadius: width * 0.07,
@@ -308,7 +317,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#0e0634d6',
+    backgroundColor: '#0e06341a',
   },
   scrollContainer: {
     flex: 1,

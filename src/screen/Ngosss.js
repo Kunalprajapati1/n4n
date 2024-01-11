@@ -4,6 +4,7 @@ import {
   View,
   StatusBar,
   Text,
+  Image,
   TextInput,
   TouchableOpacity,
   StyleSheet,
@@ -14,12 +15,20 @@ import {
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import * as Animatable from 'react-native-animatable';
-
+import { ScrollView } from 'react-native';
+import {useFonts} from 'expo-font'
 // Get screen dimensions
 const { width, height } = Dimensions.get('window');
 
 // Component definition
 const Ngosss = ({ navigation }) => {
+
+  const [fontsLoaded] = useFonts({
+    DSemibold: require("../../assets/fonts/DancingScript-SemiBold.ttf"),
+    semibold: require("../../assets/fonts/Montserrat-SemiBold.ttf"),
+    Regular: require("../../assets/fonts/Montserrat-Regular.ttf"),
+    Bold: require("../../assets/fonts/Montserrat-Bold.ttf"),
+  });
   // State variables for form fields
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -68,16 +77,17 @@ const Ngosss = ({ navigation }) => {
         contentContainerStyle={styles.scrollContainer}
         scrollEnabled={true}
       >
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
           {/* Status bar */}
           <StatusBar barStyle="light-content" backgroundColor="#120C2C" />
-
+          <Image source={require('../../assets/again.jpg')} style={styles.backgroundImage} />
           {/* Header text */}
           <Text style={styles.headerText}>Collect Food without any Issues</Text>
 
           {/* Input boxes and labels */}
           <Animatable.View animation="fadeIn" duration={2000} style={styles.inputContainer}>
             <Animatable.View animation="fadeIn" duration={2000} delay={200} style={styles.inputWrapper}>
+              
               <TextInput
                 style={styles.input}
                 placeholder="Organization name"
@@ -162,7 +172,7 @@ const Ngosss = ({ navigation }) => {
               </TouchableOpacity>
             </View>
           </Animatable.View>
-        </View>
+        </ScrollView>
       </KeyboardAwareScrollView>
     </KeyboardAvoidingView>
   );
@@ -170,6 +180,14 @@ const Ngosss = ({ navigation }) => {
 
 // Styles
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 3,
+    resizeMode:'cover',
+    position: 'absolute',
+    height:'190%',
+    width: '190%',
+  
+  },
   container: {
     flex: 1,
     backgroundColor: '#120C2C',
@@ -180,8 +198,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
-    fontSize: width * 0.09,
-    fontWeight: 'bold',
+    fontSize: width * 0.1,
+    fontFamily: "Dbold",
     marginBottom: height * 0.02,
     color: 'white',
     textAlign: 'center',
@@ -191,6 +209,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: width * 0.9,
     marginLeft: width * 0.04,
+    
   },
   inputWrapper: {
     marginBottom: height * 0.02,
@@ -199,6 +218,7 @@ const styles = StyleSheet.create({
     height: height * 0.065,
     borderColor: '#ffffffff',
     borderWidth: 2,
+    fontFamily: "Regular",
     borderRadius: width * 0.04,
     paddingLeft: width * 0.03,
     marginRight: width * 0.05,
