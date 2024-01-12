@@ -43,8 +43,8 @@ const ButtonContainer = () => {
       <IconButton onPress={() => navigateToPage('Home')} source={require('../../assets/home2.png')} />
       {/* New About Button */}
       <IconButton
-        onPress={() => navigateToPage('About')}
-        source={require('../../assets/about.png')}
+        onPress={() => navigateToPage('Faltu')}
+        source={require('../../assets/cart2.png')}
         style={styles.aboutButton}
       />
       <View style={styles.centerIconContainer}>
