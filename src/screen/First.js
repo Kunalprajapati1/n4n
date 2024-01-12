@@ -46,9 +46,9 @@ const First = () => {
       <View style={styles.pageContainer}>
        
       
-           <ScrollView style={styles.fearch}>
+           {/* <ScrollView style={styles.fearch}>
      <Search/>
-      </ScrollView>
+      </ScrollView> */}
 
         <TouchableOpacity onPress={toggleMenu} style={styles.menuIcon} activeOpacity={0.7}>
           <Text style={styles.menuText}>{menuOpen ? '' : '≡'}</Text>
@@ -73,6 +73,9 @@ const First = () => {
               </Text>
               <Text onPress={() => navigateToPage('Contact')} style={styles.menuItem}>
                 Contact
+              </Text>
+              <Text onPress={() => navigateToPage('Faltu')} style={styles.menuItem}>
+                E-Commerce
               </Text>
               {/* Profile Photo Section inside the Menu */}
               <View style={styles.profileContainer}>

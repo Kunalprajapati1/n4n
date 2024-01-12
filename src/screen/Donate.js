@@ -147,7 +147,7 @@ const Donate = () => {
         </View>
         <View style={styles.htmlContainer}>
           {/* <Text style={styles.htmlText}>
-            Scan and make a donation to support our cause. Together, we can make a difference in the lives of those in need.
+            Scan and make a donation to support our cause. Togethyer, we can make a difference in the lives of those in need.
           </Text> */}
          
           <Image

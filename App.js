@@ -21,6 +21,10 @@ import Login from './src/screen/Login';
 import Sign from './src/screen/Sign';
 import Profiles from './src/screen/Profiles';
 
+import Faltu from '../n4n/src/screen/Faltu';
+import ProductDetail from '../n4n/src/screen/ProductDetail';
+
+
 
 
 const Stack = createStackNavigator();
@@ -51,7 +55,8 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Sign" component={Sign} />
         <Stack.Screen name="Profiles" component={Profiles} />
-
+        <Stack.Screen name="Faltu" component={Faltu} />
+        <Stack.Screen name="ProductDetail" component={ProductDetail} />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>

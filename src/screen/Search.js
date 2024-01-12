@@ -165,6 +165,7 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
     // backgroundColor: '#000000',
     padding: 16,
     paddingTop: 60,
@@ -201,8 +202,12 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     backgroundColor: '#fff',
-    borderRadius: 32,
+    borderRadius: 42,
     marginTop: 15,
+    borderWidth: 9,
+    borderTopLeftRadius:2,
+    borderBlockStartColor:'#0d6346',
+    borderColor:'#0d6346',
     marginBottom: 20,
     // shadowColor: '#932f2f',
     // shadowOffset: { width: 0, height: 4 },
@@ -217,13 +222,14 @@ const styles = StyleSheet.create({
   },
   cardImage: {
     width: '100%',
+    borderTopLeftRadius:2,
     height: 200,
     borderRadius: 32,
     overflow: 'hidden',
   },
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(11, 52, 64, 0.728)',
+    backgroundColor: '#12c08640',
     padding: 16,
     justifyContent: 'flex-end',
   },
@@ -232,22 +238,24 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
    
     textAlign:'center',
-    color: '#fff',
+    color: '#000000',
   },
   cardLocation: {
     fontSize: 16,
     fontWeight:'bold',
     marginTop: 8,
+    
     textAlign:'center',
-    color: '#fff',
+    color: '#000000',
   },
   cardDescription: {
     fontSize: 12,
     marginTop: 3,
-    color: '#fff',
+    fontWeight:'bold',
+    color: '#000000',
   },
   viewButton: {
-    backgroundColor: '#062b06',
+    backgroundColor: '#3498dbca',
     paddingVertical: 12,
     paddingHorizontal: 16,
     borderRadius: 18,
@@ -256,7 +264,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 18,
   },
   backgroundImage: {
     flex: 3,

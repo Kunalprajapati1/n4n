@@ -8,13 +8,13 @@ const { width, height } = Dimensions.get('window');
 
 const Started = () => {
 const [fontsLoaded] = useFonts({
+
+
+  
   'Dbold': require('../../assets/fonts/DancingScript-Bold.ttf'),
-  'DMedium': require('../../assets/fonts/DancingScript-Medium.ttf'),
-  'Dregular': require('../../assets/fonts/DancingScript-Regular.ttf'),
-  'DSemibold': require('../../assets/fonts/DancingScript-SemiBold.ttf'),
-  'semibold' : require('../../assets/fonts/Montserrat-SemiBold.ttf'),
+
   'Regular' : require('../../assets/fonts/Montserrat-Regular.ttf'),
-  'Bold' : require('../../assets/fonts/Montserrat-Bold.ttf'),
+  // 'Bold' : require('../../assets/fonts/Montserrat-Bold.ttf'),
   
 })
 
@@ -49,7 +49,7 @@ if(!fontsLoaded){
           
         </Animatable.Text>
         <Animatable.Text animation="fadeIn" duration={5000} delay={600} style={styles.text2}>
-        <Text style ={{ fontFamily: "Regular",color: 'white',fontSize:18, }}>Start with Need4Need</Text>
+        <Text style ={{ fontFamily: "Regular",color: 'white',fontSize:18, }}>Start with Need4Need and Donate thing like Books ,Old / New clothes and at last Food</Text>
           
         </Animatable.Text>
         <TouchableOpacity onPress={() => navigateToPage('Again')} style={styles.button}>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontSize: width * 0.1,
     marginTop: height * 0.13,
     textAlign: 'center',
-    fontFamily: 'Montserrat-Regular',
+    // fontFamily: 'Montserrat-Regular',
     fontWeight: 'bold',
   },
   text2: {
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     marginTop: height * 0.04,
     fontSize: width * 0.04,
     fontWeight: 'bold',
+    textAlign:'center',
   },
   buttonText: {
     color: 'white',
