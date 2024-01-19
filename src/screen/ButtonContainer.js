@@ -40,11 +40,11 @@ const ButtonContainer = () => {
 
   return (
     <View style={styles.container}>
-      <IconButton onPress={() => navigateToPage('Home')} source={require('../../assets/home2.png')} />
+      <IconButton onPress={() => navigateToPage('Home')} source={require('../../assets/home.gif')} />
       {/* New About Button */}
       <IconButton
         onPress={() => navigateToPage('Faltu')}
-        source={require('../../assets/cart2.png')}
+        source={require('../../assets/shopping.gif')}
         style={styles.aboutButton}
       />
       <View style={styles.centerIconContainer}>
@@ -57,10 +57,10 @@ const ButtonContainer = () => {
       </View>
       <IconButton
         onPress={() => navigateToPage('Search')}
-        source={require('../../assets/search.png')}
+        source={require('../../assets/search.gif')}
         style={styles.searchButton}
       />
-      <IconButton onPress={() => navigateToPage('Login')} source={require('../../assets/profile.png')} style={styles.profileButton} />
+      <IconButton onPress={() => navigateToPage('Login')} source={require('../../assets/account.gif')} style={styles.profileButton} />
     </View>
   );
 };
