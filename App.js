@@ -23,6 +23,8 @@ import Profiles from './src/screen/Profiles';
 
 import Faltu from '../n4n/src/screen/Faltu';
 import ProductDetail from '../n4n/src/screen/ProductDetail';
+import Hover from '../n4n/src/screen/Hover';
+import Ngos2 from './src/screen/Ngos2';
 
 
 
@@ -57,6 +59,8 @@ export default function App() {
         <Stack.Screen name="Profiles" component={Profiles} />
         <Stack.Screen name="Faltu" component={Faltu} />
         <Stack.Screen name="ProductDetail" component={ProductDetail} />
+        <Stack.Screen name="Hover" component={Hover} />
+        <Stack.Screen name="Ngos2" component={Ngos2} />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>

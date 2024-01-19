@@ -12,7 +12,7 @@ import {
   Easing,
   Linking, // Import Linking for opening UPI app
 } from 'react-native';
-
+import { useFonts } from 'expo-font';
 const Donate = () => {
   const { width, height } = Dimensions.get('window');
   const [name, setName] = useState('');
@@ -23,6 +23,18 @@ const Donate = () => {
   const [address, setAddress] = useState('');
 
   const animatedValue = new Animated.Value(0);
+
+  const [fontsLoaded] = useFonts({
+    'Dbold': require('../../assets/fonts/DancingScript-Bold.ttf'),
+    'DMedium': require('../../assets/fonts/DancingScript-Medium.ttf'),
+    'Dregular': require('../../assets/fonts/DancingScript-Regular.ttf'),
+    'DSemibold': require('../../assets/fonts/DancingScript-SemiBold.ttf'),
+    'semibold' : require('../../assets/fonts/Montserrat-SemiBold.ttf'),
+    'Regular' : require('../../assets/fonts/Montserrat-Regular.ttf'),
+    'Bold' : require('../../assets/fonts/Montserrat-Bold.ttf'),
+  });
+
+
 
   const startAnimation = () => {
     Animated.timing(animatedValue, {
@@ -103,42 +115,42 @@ const Donate = () => {
             onChangeText={(text) => setName(text)}
             style={styles.input}
             placeholder="Your Name*"
-            placeholderTextColor="#6b6b6b"
+            placeholderTextColor="#000000"
           />
           <TextInput
             value={email}
             onChangeText={(text) => setEmail(text)}
             style={styles.input}
             placeholder="Your Email*"
-            placeholderTextColor="#6b6b6b"
+            placeholderTextColor="#000000"
           />
           <TextInput
             value={phone}
             onChangeText={(text) => setPhnNum(text)}
             style={styles.input}
             placeholder="Phone Number*"
-            placeholderTextColor="#6b6b6b"
+            placeholderTextColor="#000000"
           />
           <TextInput
             value={address}
             onChangeText={(text) => setAddress(text)}
             style={styles.input}
             placeholder="Address with Pincode*"
-            placeholderTextColor="#6b6b6b"
+            placeholderTextColor="#000000"
           />
           <TextInput
             value={pincode}
             onChangeText={(text) => setPincode(text)}
             style={styles.input}
             placeholder="Pincode*"
-            placeholderTextColor="#6b6b6b"
+            placeholderTextColor="#000000"
           />
           <TextInput
             value={message}
             onChangeText={(text) => setMessage(text)}
             style={styles.messageInput}
             placeholder="Tell us about the food you want to donate*"
-            placeholderTextColor="#6b6b6b"
+            placeholderTextColor="#000000"
             multiline
           />
           <TouchableOpacity onPress={submitDonate} style={styles.button}>
@@ -155,7 +167,7 @@ const Donate = () => {
             style={styles.htmlImage}
           /> 
            <TouchableOpacity onPress={initiatePayment} style={styles.payNowButton}>
-            <Text style={styles.payNowButtonText}>Click to open UPI App</Text>
+            <Text style={styles.payNowButtonText}>Pay with UPI</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -187,17 +199,17 @@ const styles = StyleSheet.create({
     margin: 20,
    
     padding: 20,
-    backgroundColor: '#ffffff',
-    borderRadius: 10,
+    backgroundColor: '#ffffffff',
+    borderRadius: 30,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.9,
     shadowRadius: 4,
     elevation: 5,
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
+    fontSize: 44,
+  fontFamily:'Dbold',
     color: '#333',
     marginBottom: 20,
     textAlign: 'center',
@@ -205,31 +217,33 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 16,
     backgroundColor: '#f7f7f7',
-    borderRadius: 8,
+    borderRadius: 38,
+    fontFamily:'Regular',
     padding: 12,
     marginBottom: 16,
-    color: '#333',
+    color: '#000000',
   },
   messageInput: {
     fontSize: 16,
+    fontFamily:'Regular',
     backgroundColor: '#f7f7f7',
-    borderRadius: 8,
+    borderRadius: 28,
     padding: 12,
     marginBottom: 20,
     color: '#333',
     height: 120,
   },
   button: {
-    backgroundColor: '#1eac57',
-    paddingVertical: 15,
+    backgroundColor: '#1eac81bd',
+    paddingVertical: 12,
     alignItems: 'center',
-    borderRadius: 8,
+    borderRadius: 28,
     marginTop: 10,
   },
   buttonText: {
     color: 'white',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily:'Regular',
   },
   htmlContainer: {
     margin: 20,
@@ -248,21 +262,23 @@ const styles = StyleSheet.create({
   htmlImage: {
     width: 300,
     height: 350,
-    borderRadius: 8,
+    borderRadius:38,
   },
   payNowButton: {
-    backgroundColor: '#288166',
-    paddingVertical: 15,
+    backgroundColor: '#288166b6',
+    // paddingVertical: 11,
     alignItems: 'center',
-    borderRadius: 8,
+    borderRadius: 38,
     marginTop: 60,
+    marginBottom:'9%',
     width:'70%',
-    height:'12%',
+    height:'9%',
   },
   payNowButtonText: {
     color: 'white',
-    fontSize: 20,
-    fontWeight: 'bold',
+    marginTop:'6%',
+    fontSize: 14,
+ fontFamily:'Regular',
   },
 });
 

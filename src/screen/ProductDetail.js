@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView,TouchableOpacity,ImageBackground, TextInput, Alert } from 'react-native';
 import { useFonts } from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-const ProductDetail = ({ route }) => {
+const ProductDetail = ({ route , navigation }) => {
   const { product } = route.params;
   const [pincode, setPincode] = useState('');
   const [deliveryDate, setDeliveryDate] = useState(getRandomDeliveryDate());
@@ -13,6 +13,11 @@ const ProductDetail = ({ route }) => {
       <Text style={styles.pointText}>{text}</Text>
     </View>
   );
+
+  const showProductDetail = (product) => {
+    navigation.navigate('ProductDetail', { product });
+  };
+
   const [review, setReview] = useState('');
   const [reviews, setReviews] = useState([]);
   const [fontsLoaded] = useFonts({

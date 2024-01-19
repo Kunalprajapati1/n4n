@@ -67,22 +67,42 @@ const Ngosss = ({ navigation }) => {
 
   // Component rendering
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -150}
+    <ScrollView>
+  <KeyboardAvoidingView
+    style={styles.container}
+    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -150}
+  >
+    <KeyboardAwareScrollView
+      resetScrollToCoords={{ x: 0, y: 0 }}
+      contentContainerStyle={styles.scrollContainer}
+      scrollEnabled={true}
     >
-      <KeyboardAwareScrollView
-        resetScrollToCoords={{ x: 0, y: 0 }}
-        contentContainerStyle={styles.scrollContainer}
-        scrollEnabled={true}
-      >
+            <View style={styles.ncontainer}>
+
+<Image  source={{ uri: 'https://images.unsplash.com/photo-1672009190560-12e7bade8d09?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' }}style={styles.Image6}    />
+<View style={styles.overlay2}>
+<Text style={styles.texth} >  {'\n'}  Get Connected   </Text><Text style={styles.texth2}>
+Please share all your necessary details so that you can be Food pickup details can be shared on your Emails
+   </Text>
+
+</View>
+
+
+
+
+        </View>
+
+   
         <ScrollView style={styles.container}>
+    
           {/* Status bar */}
-          <StatusBar barStyle="light-content" backgroundColor="#120C2C" />
-          <Image source={require('../../assets/again.jpg')} style={styles.backgroundImage} />
+          <StatusBar barStyle="light-content" backgroundColor="#000000" />
+          <Image  style={styles.backgroundImage} />
           {/* Header text */}
-          <Text style={styles.headerText}>Collect Food without any Issues</Text>
+          <Text style={styles.headerText}>Fill the following Information
+</Text>
+<View style={styles.cont} >
 
           {/* Input boxes and labels */}
           <Animatable.View animation="fadeIn" duration={2000} style={styles.inputContainer}>
@@ -90,8 +110,9 @@ const Ngosss = ({ navigation }) => {
               
               <TextInput
                 style={styles.input}
+            
                 placeholder="Organization name"
-                placeholderTextColor="#ffffff87"
+                placeholderTextColor="#00000087"
                 onChangeText={(text) => setName(text)}
               />
             </Animatable.View>
@@ -99,7 +120,7 @@ const Ngosss = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Organization email"
-                placeholderTextColor="#ffffff87"
+                placeholderTextColor="#00000087"
                 onChangeText={(text) => setEmail(text)}
               />
             </Animatable.View>
@@ -107,7 +128,7 @@ const Ngosss = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Organization mobile number"
-                placeholderTextColor="#ffffff87"
+                placeholderTextColor="#00000087"
                 onChangeText={(text) => setMobileNumber(text)}
               />
             </Animatable.View>
@@ -115,7 +136,7 @@ const Ngosss = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Organization address"
-                placeholderTextColor="#ffffff87"
+                placeholderTextColor="#00000087"
                 onChangeText={(text) => setAddress(text)}
               />
             </Animatable.View>
@@ -123,7 +144,7 @@ const Ngosss = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Organization city"
-                placeholderTextColor="#ffffff87"
+                placeholderTextColor="#00000087"
                 onChangeText={(text) => setCity(text)}
               />
             </Animatable.View>
@@ -131,7 +152,7 @@ const Ngosss = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Organization state"
-                placeholderTextColor="#ffffff87"
+                placeholderTextColor="#00000087"
                 onChangeText={(text) => setState(text)}
               />
             </Animatable.View>
@@ -139,7 +160,7 @@ const Ngosss = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder=" Organization pincode"
-                placeholderTextColor="#ffffff87"
+                placeholderTextColor="#00000087"
                 onChangeText={(text) => setPincode(text)}
               />
             </Animatable.View>
@@ -147,13 +168,11 @@ const Ngosss = ({ navigation }) => {
               <TextInput
                 style={styles.input}
                 placeholder="Share anything (Optional)"
-                placeholderTextColor="#ffffff87"
+                placeholderTextColor="#00000087"
                 onChangeText={(text) => setFoodDescription(text)}
               />
             </Animatable.View>
           </Animatable.View>
-
-          {/* Button container */}
           <Animatable.View animation="fadeIn" duration={2000} delay={1800} style={styles.buttonContainer}>
             {/* Combined Donate and Skip buttons */}
             <View style={styles.buttonsColumn}>
@@ -171,10 +190,11 @@ const Ngosss = ({ navigation }) => {
                 <Text style={styles.buttonText}>Skip</Text>
               </TouchableOpacity>
             </View>
-          </Animatable.View>
+          </Animatable.View></View>
         </ScrollView>
+        
       </KeyboardAwareScrollView>
-    </KeyboardAvoidingView>
+    </KeyboardAvoidingView></ScrollView>
   );
 };
 
@@ -188,43 +208,111 @@ const styles = StyleSheet.create({
     width: '190%',
   
   },
+  ncontainer:{
+
+borderWidth:3,
+borderColor:'#7251a9',
+padding:20,
+marginTop:'25%',
+borderRadius:30,
+height:'27%',
+width:"95%",
+
+  },
+
+  cont:{
+height:'76%',
+paddingTop:30,
+borderRadius:30,
+width:'95%',
+marginLeft:'2%',
+backgroundColor:'#a48dd33b',
+
+
+
+  },
+  texth:{
+// borderWidth:5,
+textAlign:'center',
+fontSize:28,
+color:'#d0cadc',
+// marginTop:'30%',
+// marginRight:'2%',
+borderRadius:40,
+fontFamily:'Regular',
+
+
+
+  },
+  texth2:{
+    // borderWidth:5,
+    marginTop:'9%',
+    fontSize:20,
+    marginLeft:'8%',
+    fontFamily:'Regular',
+    color:'#81bedd',
+    // marginTop:'30%',
+    // marginRight:'2%',
+    borderRadius:40,
+    
+    
+    
+      },
+  overlay2: {
+    ...StyleSheet.absoluteFillObject,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#120C2C',
+    backgroundColor: '#000000',
   },
   scrollContainer: {
-    flex: 1,
+    flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  Image6:{
+// marginTop:'30%',
+width:332,
+height:210,
+borderRadius:50,
+resizeMode:'cover', 
+position: 'absolute',
+flex:1,
+
   },
   headerText: {
     fontSize: width * 0.1,
     fontFamily: "Dbold",
-    marginBottom: height * 0.02,
+    marginBottom: height * 0.06,
     color: 'white',
     textAlign: 'center',
     marginTop: StatusBar.currentHeight + height * 0.05,
   },
   inputContainer: {
     flex: 1,
+
     width: width * 0.9,
     marginLeft: width * 0.04,
     
   },
   inputWrapper: {
     marginBottom: height * 0.02,
+    
   },
   input: {
     height: height * 0.065,
     borderColor: '#ffffffff',
     borderWidth: 2,
+    backgroundColor: '#ffffffff',
     fontFamily: "Regular",
     borderRadius: width * 0.04,
     paddingLeft: width * 0.03,
-    marginRight: width * 0.05,
-    color: '#ffffffeb',
+    marginRight: width * 0.07,
+    color: '#000000eb',
     fontSize: width * 0.04,
-    marginLeft: width * 0.04,
+    marginLeft: width * 0.02,
     width: 'auto',
   },
   buttonContainer: {
@@ -235,6 +323,7 @@ const styles = StyleSheet.create({
   buttonsColumn: {
     flexDirection: 'column',
     alignItems: 'center',
+    
   },
   textButton: {
     paddingVertical: height * 0.015,

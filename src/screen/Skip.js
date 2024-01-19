@@ -194,7 +194,7 @@ const Skip = ({ navigation }) => {
           <Text style={styles.headerText}>
           <Text style={{ fontFamily: "Dbold",color: 'white' }}>
             
-            Donate the food with ease
+            Donate the stuff with Love
           
             </Text>
             </Text>
@@ -272,7 +272,7 @@ const Skip = ({ navigation }) => {
           /> 
              
               <TouchableOpacity onPress={initiatePayment} style={styles.payNowButton}>
-            <Text style={styles.payNowButtonText}>Click to open UPI App</Text>
+            <Text style={styles.payNowButtonText}>Donate with UPI</Text>
           </TouchableOpacity>
           <Text onPress={() => navigation.navigate('First')} style={styles.buttonText2}>Skip</Text>
             </View>

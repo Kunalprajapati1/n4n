@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, ScrollView, 
 import { Ionicons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 
-const Faltu = ({ navigation }) => { // Pass navigation prop
+const Faltu = ({ navigation }) => { 
   const [searchText, setSearchText] = useState('');
 
   const [fontsLoaded] = useFonts({
@@ -18,6 +18,24 @@ const Faltu = ({ navigation }) => { // Pass navigation prop
   });
 
   const products = [
+    { category: 'Manure', name: 'Organic Compost', price: ' ₹1099', image: require('../../assets/download4.png') },
+    { category: 'Manure', name: 'Cow Dung Fertilizer', price: '₹899', image: require('../../assets/download3.png') },
+    { category: 'Manure', name: 'Worm Castings', price: '₹1299', image: require('../../assets/download3.png') },
+    { category: 'Manure', name: 'Fish Emulsion', price: '₹1499', image: require('../../assets/download3.png') },
+    { category: 'Manure', name: 'Bat Guano', price: '₹1699', image: require('../../assets/download3.png') },
+    { category: 'Seeds', name: 'Vegetable Seeds Mix', price: '₹599', image: require('../../assets/download3.png') },
+    { category: 'Seeds', name: 'Flower Seeds Pack', price: '₹799', image: require('../../assets/download3.png') },
+    { category: 'Seeds', name: 'Herb Seeds Collection', price: '₹699', image: require('../../assets/download3.png') },
+    { category: 'Seeds', name: 'Fruit Seeds Assortment', price: '₹899', image: require('../../assets/download3.png') },
+    { category: 'Seeds', name: 'Exotic Plant Seeds', price: '₹999', image: require('../../assets/download3.png') },
+    { category: 'Plants', name: 'Indoor Potted Plant', price: '₹1599', image: require('../../assets/download3.png') },
+    { category: 'Plants', name: 'Outdoor Flowering Plant', price: '₹1899', image: require('../../assets/download3.png') },
+    { category: 'Plants', name: 'Succulent Garden', price: '₹2299', image: require('../../assets/download3.png') },
+    { category: 'Plants', name: 'Bonsai Tree', price: '₹2599', image: require('../../assets/download3.png') },
+    { category: 'Plants', name: 'Tropical Palm', price: '₹2999', image: require('../../assets/download3.png') },
+    { category: 'Plants', name: 'Cactus Collection', price: '₹1999', image: require('../../assets/download3.png') },
+  ];
+  const products2 = [
     { category: 'Manure', name: 'Organic Compost', price: ' ₹1099', image: require('../../assets/download4.png') },
     { category: 'Manure', name: 'Cow Dung Fertilizer', price: '₹899', image: require('../../assets/download3.png') },
     { category: 'Manure', name: 'Worm Castings', price: '₹1299', image: require('../../assets/download3.png') },
@@ -93,6 +111,7 @@ const Faltu = ({ navigation }) => { // Pass navigation prop
           {renderProductLine('Plants')}
           <Text style={styles.title}>More</Text>
           {renderProductLine('Plants')}
+          {renderProductLine('Manure')}
         
         </ScrollView>
       </KeyboardAvoidingView>
@@ -161,9 +180,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   title: {
-    color: 'white',
-    fontSize: 26,
-    fontFamily: "Regular",
+    color: '#ffffff',
+    fontSize: 40,
+    fontFamily: "Dbold",
     marginLeft: 20,
     marginTop: 20,
     marginBottom: 10,

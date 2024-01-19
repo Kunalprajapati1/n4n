@@ -10,7 +10,7 @@ const IconButton = ({ onPress, source, style, rotate }) => {
   const handlePress = () => {
     Animated.timing(rotateValue, {
       toValue: rotateValue._value === 0 ? 1 : 0, // Toggle between 0 and 1
-      duration: 300,
+      duration: 200,
       useNativeDriver: false,
     }).start(() => onPress());
   };

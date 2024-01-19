@@ -1,14 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, StatusBar, Image, TouchableOpacity, Dimensions, Animated } from 'react-native';
+import React from 'react';
+import { View, Text, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {useFonts} from 'expo-font'
 const { width, height } = Dimensions.get('window');
 
 const Again = () => {
   const navigation = useNavigation();
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const buttonWidth = width * 0.8;
-  const buttonHeight = height * 0.07;
+
+  const scrollToTop = () => {
+    // Implement your logic to scroll to the top in React Native
+  };
 
   const [fontsLoaded] = useFonts({
     'Dbold': require('../../assets/fonts/DancingScript-Bold.ttf'),
@@ -20,121 +21,90 @@ const Again = () => {
     'Bold' : require('../../assets/fonts/Montserrat-Bold.ttf'),
     
   })
-  useEffect(() => {
-    Animated.timing(
-      fadeAnim,
-      {
-        toValue: 1,
-        duration: 1000,
-        useNativeDriver: true,
-      }
-    ).start();
-  }, [fadeAnim]);
-
-  const navigateToPage = (pageName) => {
-    navigation.navigate(pageName);
-  };
 
   return (
-    <Animated.View style={{ ...styles.container, opacity: fadeAnim }}>
-      <Image source={require('../../assets/again.jpg')} style={styles.backgroundImage} />
+    // <ScrollView>
+      <View style={{ backgroundColor: '#262f38', flex: 1 }}>
+        {/* <ScrollView> */}
+          <View style={{ flex: 1, flexDirection: 'column' ,}}>
+            {/* Image takes half of the screen */}
+            <Image
+              source={{
+                uri:
+                  'https://images.unsplash.com/photo-1510906594845-bc082582c8cc?q=80&w=2044&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+              }}
+              style={{ flex: 1, height: height * 0.5, width: '100%' }}
+              resizeMode="cover"
+            />
 
-      <View style={styles.headerText}>
-        <Text style={styles.headerFirstLetter}>S</Text>
-        <Text style={styles.headerRestOfText}>
- elect yourself from below Category</Text>
+            {/* Background color takes the other half */}
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: 'rgba(38, 47, 56, 0.5)', // Adjust the opacity as needed
+                padding: 20,
+              }}
+            >
+              <View style={{ flex: 1, justifyContent: 'center' }}>
+                <View
+                  style={{
+                    borderColor: '#a2a1a1',
+                    borderWidth: 3,
+               
+                    padding: 25,
+
+                    height:'150%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.361)',
+                  }}
+                >
+                  <Text style={{ fontSize: 29, color: 'white', textAlign: 'center' ,marginBottom:'10%',fontFamily:'Regular'}}>
+                    Please tell us Who{' '}
+                    <Text style={{ fontSize: 26 ,fontFamily:'Regular'}}>are you before moving forward :)</Text>
+                  </Text>
+
+                  <View style={{ marginTop: 20 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Ngos2')}>
+                      <View style={buttonStyles}>
+                        <Text style={buttonTextStyles}>Are you an NGO?</Text>
+                      </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => navigation.navigate('Skip')}>
+                      <View style={buttonStyles}>
+                        <Text style={buttonTextStyles}>Do you want to donate / find NGO?</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        {/* </ScrollView> */}
       </View>
-
-      <TouchableOpacity onPress={() => navigateToPage('Skip')} style={{ ...styles.button, width: buttonWidth, height: buttonHeight }}>
-        <Text style={styles.buttonText}>Want to Donate ? </Text>
-      </TouchableOpacity>
-
-      <Text style={styles.text3}>OR</Text>
-
-      <TouchableOpacity onPress={() => navigateToPage('Ngosss')} style={{ ...styles.button, width: buttonWidth, height: buttonHeight }}>
-        <Text style={styles.buttonText2}>Join as NGOs ?</Text>
-      </TouchableOpacity>
-    </Animated.View>
+    // </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    position: 'absolute',
-    height: '170%',
-    width: '100%',
-  },
-  text3: {
-    color: 'white',
-    marginTop: '9%',
-    fontSize: 22,
-    fontFamily: "Regular",
-    textAlign: 'center',
-    letterSpacing: 1,
-    textShadowColor: 'rgba(190, 8, 8, 0.75)',
-    textShadowOffset: { width: 3, height: 3 },
-    textShadowRadius: 9,
-    lineHeight: 30,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: '15%',
-  },
-  headerText: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: StatusBar.currentHeight - 240,
-    marginLeft:'15%',
-    marginRight:'10%',
-    fontSize: 48,
-    fontFamily: "Dbold",
+const buttonStyles = {
+  borderColor: '#a2a1a1',
+  borderWidth: 2,
+  marginBottom:'9%',
+  backgroundColor: '#c0bccf4a',
+  shadowColor: 'black',
+  shadowOffset: { width: 0, height: 5 },
+  shadowOpacity: 0.8,
+  shadowRadius: 2,
+  elevation: 5,
+  borderRadius: 10,
+  padding: 20,
+  marginVertical: 13,
+};
 
-    color: 'white',
-    marginLeft: '19%', 
-  },
-  headerFirstLetter: {
-    fontSize: 76, // Adjust the size as needed
-    // fontWeight: 'bold',
-    color: '#ffffffff',
-    fontFamily: "Dbold",
-    marginBottom:'29%',
-    marginLeft:'3%',
-  },
-  headerRestOfText: {
-    fontSize: 34,
-    fontFamily: "Dbold",
-    color: 'white',
-    marginLeft: '1%',
-    marginRight:'2%',
-    
-  },
-  button: {
-    backgroundColor: '#7B7DDB',
-    padding: 12,
-    borderRadius: 25,
-    marginTop: '6%',
-  },
-  buttonText: {
-    color: 'white',
-    marginRight: 25,
-    fontFamily: "Regular",
-    marginLeft: 30,
-    fontSize: 23,
-    textAlign: 'center',
-  },
-  buttonText2: {
-    color: 'white',
-    marginRight: 25,
-    fontFamily: "Regular",
-    marginLeft: 30,
-    fontSize: 25,
-    textAlign: 'center',
-  },
-});
+const buttonTextStyles = {
+  fontSize: 24,
+  color: 'white',
+  textAlign: 'center',
+  fontFamily: 'Regular', // You can replace this with your custom font family
+};
 
 export default Again;

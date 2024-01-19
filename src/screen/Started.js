@@ -19,9 +19,9 @@ const [fontsLoaded] = useFonts({
 })
 
 
-if(!fontsLoaded){
-  return null;
-}
+// if(!fontsLoaded){
+//   return null;
+// }
 
   const navigation = useNavigation();
 
@@ -33,14 +33,14 @@ if(!fontsLoaded){
     <View style={styles.container}>
       {/* <StatusBar barStyle="light-content" backgroundColor="#7b7ddb" /> */}
       <Image
-        source={require('../../assets/start2.png')}
+        source={require('../../assets/start4.png')}
         style={styles.started}
       />
        
       <View style={styles.overlay}>
         <Animatable.Text animation="fadeIn" duration={5000} style={styles.text1}>
         
-        <Text style ={{ fontFamily: "Dbold",color: 'white',fontSize:39, }}>Let's unite to end global food waste!</Text>
+        <Text style ={{ fontFamily: "Dbold",color: '#e2eef1',fontSize:39, }}>Let's unite to end global food waste!</Text>
       
         {/* <Text style ={{ fontFamily: "Dbold",color: 'white' }}>Hello</Text>
         <Text style ={{ fontFamily: "Dregular",color: 'white' }}>Hello</Text>
@@ -49,7 +49,7 @@ if(!fontsLoaded){
           
         </Animatable.Text>
         <Animatable.Text animation="fadeIn" duration={5000} delay={600} style={styles.text2}>
-        <Text style ={{ fontFamily: "Regular",color: 'white',fontSize:18, }}>Start with Need4Need and Donate thing like Books ,Old / New clothes and at last Food</Text>
+        <Text style ={{ fontFamily: "Regular",color: '#dfe8eb',fontSize:18, }}>Start with Need4Need and Donate thing like Books ,Old / New clothes and Food</Text>
           
         </Animatable.Text>
         <TouchableOpacity onPress={() => navigateToPage('Again')} style={styles.button}>
@@ -78,15 +78,15 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: 'row',
-    backgroundColor: '#7B7DDB',
+    backgroundColor: '#c0bccf4a',
     padding: width * 0.03,
     width: width * 0.7,
     height: height * 0.07,
     borderRadius: height * 0.035,
-    marginTop: height * 0.07,
+    marginTop: height * 0.05,
   },
   text1: {
-    color: 'white',
+    color: '#0e8e97',
     fontSize: width * 0.1,
     marginTop: height * 0.13,
     textAlign: 'center',
