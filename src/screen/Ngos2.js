@@ -255,6 +255,7 @@ const styles = StyleSheet.create({
     marginTop: height * 0.02,
     borderWidth: 2,
     borderColor: 'white',
+    backgroundColor:'#6f106461',
     borderRadius: width * 0.04,
     padding: width * 0.03,
   },
@@ -267,7 +268,7 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.01,
   },
   input: {
-    height: height * 0.065,
+    height: height * 0.055,
     borderColor: '#ffffffff',
     borderWidth: 2,
     backgroundColor: '#ffffffff',
@@ -296,7 +297,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   donateButton: {
-    backgroundColor: '#7B7DDB',
+    backgroundColor: '#bb7bdb75',
     borderRadius: width * 0.07,
     paddingVertical: height * 0.02,
     paddingHorizontal: width * 0.23,
