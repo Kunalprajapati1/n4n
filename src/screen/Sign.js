@@ -40,7 +40,7 @@ const Sign = () => {
 
   const handleSignup = async () => {
     if (loading) {
-      return; // Do nothing if already in loading state
+      return; 
     }
   
     try {
@@ -59,7 +59,7 @@ const Sign = () => {
           password,
         });
   
-        // Display success alert
+ 
         Alert.alert(
           'Registration Successful',
           'You are successfully registered! Now login using your email/mobile and password.',

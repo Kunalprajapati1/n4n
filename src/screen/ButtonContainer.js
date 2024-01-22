@@ -1,7 +1,8 @@
 // ButtonContainer.js
 import React, { useRef } from 'react';
-import { View, TouchableOpacity, TouchableHighlight, Image, StyleSheet, Animated } from 'react-native';
+import { View, TouchableOpacity, TouchableHighlight, Image, StyleSheet, Animated, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Front from './Front';
 
 // Reusable IconButton Component
 const IconButton = ({ onPress, source, style, rotate }) => {
@@ -9,7 +10,7 @@ const IconButton = ({ onPress, source, style, rotate }) => {
 
   const handlePress = () => {
     Animated.timing(rotateValue, {
-      toValue: rotateValue._value === 0 ? 1 : 0, // Toggle between 0 and 1
+      toValue: rotateValue._value === 0 ? 1 : 0,
       duration: 200,
       useNativeDriver: false,
     }).start(() => onPress());
@@ -24,7 +25,7 @@ const IconButton = ({ onPress, source, style, rotate }) => {
     <TouchableHighlight
       style={[styles.button, style]}
       onPress={handlePress}
-      underlayColor="transparent" // No color change on press
+      underlayColor="transparent"
     >
       <Animated.Image source={source} style={[styles.icon, { transform: [{ rotate: spin }] }]} />
     </TouchableHighlight>
@@ -40,71 +41,83 @@ const ButtonContainer = () => {
 
   return (
     <View style={styles.container}>
-      <IconButton onPress={() => navigateToPage('Home')} source={require('../../assets/home.gif')} />
-      {/* New About Button */}
-      <IconButton
-        onPress={() => navigateToPage('Faltu')}
-        source={require('../../assets/shopping.gif')}
-        style={styles.aboutButton}
-      />
-      <View style={styles.centerIconContainer}>
-        <IconButton
-          onPress={() => navigateToPage('Donate')}
-          source={require('../../assets/donoicon2.png')}
-          style={[styles.donateButton, styles.donateIcon]} // Apply additional styles
-          rotate={true} // Rotate the "Donate" icon
-        />
+      <View style={styles.overlay}>
+        <View style={styles.buttonContainer}>
+          <IconButton onPress={() => navigateToPage('Home')} source={require('../../assets/home.gif')} />
+          <IconButton
+            onPress={() => navigateToPage('Faltu')}
+            source={require('../../assets/shopping.gif')}
+            style={styles.aboutButton}
+          />
+          <View style={styles.centerIconContainer}>
+            <IconButton
+              onPress={() => navigateToPage('Donate')}
+              source={require('../../assets/donoicon2.png')}
+              style={[styles.donateButton, styles.donateIcon]}
+              rotate={true}
+            />
+          </View>
+          <IconButton
+            onPress={() => navigateToPage('Search')}
+            source={require('../../assets/search.gif')}
+            style={styles.searchButton}
+          />
+          <IconButton onPress={() => navigateToPage('Login')} source={require('../../assets/account.gif')} style={styles.profileButton} />
+        </View>
       </View>
-      <IconButton
-        onPress={() => navigateToPage('Search')}
-        source={require('../../assets/search.gif')}
-        style={styles.searchButton}
-      />
-      <IconButton onPress={() => navigateToPage('Login')} source={require('../../assets/account.gif')} style={styles.profileButton} />
+
+      <ScrollView>
+        <Front />
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#0c5b6eff',
+    flex: 1,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: 'center',
+    marginTop: '205%', // Fixed margin top for ButtonContainer
+  },
+  buttonContainer: {
+    backgroundColor: '#000000ff',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    position: 'absolute',
     height: 70,
     width: '100%',
     borderRadius: 0,
-    marginTop: 539,
+    zIndex: 2, // Ensure the button container appears above other content
   },
   centerIconContainer: {
-    flex: 1, // Take up remaining space
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
     borderRadius: 20,
-    width: 70, // Adjusted width for smaller gaps
+    width: 70,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
   },
   searchButton: {
-    // backgroundColor: '#3498db',
-    marginLeft: 5, // Adjusted marginLeft for smaller gaps
+    marginLeft: 5,
   },
   profileButton: {
-    // backgroundColor: '#e74c3c',
-    marginLeft: 5, // Adjusted marginLeft for smaller gaps
+    marginLeft: 5,
   },
   aboutButton: {
-    // backgroundColor: '#9b59b6',
-    marginLeft: 5, // Adjusted marginLeft for smaller gaps
+    marginLeft: 5,
   },
   donateIcon: {
     width: 70,
     height: 70,
     borderRadius: 90,
-    backgroundColor: '#045e74',
+    backgroundColor: '#000000',
     marginBottom: 45,
   },
   icon: {

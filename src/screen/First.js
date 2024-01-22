@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   pageContainer: {
     flex: 1,
-    backgroundColor: '#000000f6', // Set the background color to be transparent
+  
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',

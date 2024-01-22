@@ -70,17 +70,18 @@ const Ngosss = ({ navigation }) => {
   <Image
     source={{
       uri:
-        'https://images.unsplash.com/photo-1672009190560-12e7bade8d09?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1638547908152-a8406fc38d21?q=80&w=1890&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     }}
     style={styles.image}
   />
   <View style={styles.textOverlay}>
     <Text style={styles.texth}>
       {'\n'}
-      Get Connected
+      DONATE FOOD
     </Text>
     <Text style={styles.texth2}>
-      Please share all your necessary details so that Food pickup details can be shared on your Emails
+    Give us all your necessary details and the nearest NGO will
+                  come to pick your remaining food.
     </Text>
   </View>
 </View>
@@ -90,7 +91,7 @@ const Ngosss = ({ navigation }) => {
 
           <Animatable.View animation="fadeIn" duration={2000} style={styles.inputContainer}>
             <Animatable.View animation="fadeIn" duration={2000} delay={200} style={styles.inputWrapper}>
-              <Text style={styles.label}>Organization Name</Text>
+              <Text style={styles.label}>Name</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Name"
@@ -99,27 +100,27 @@ const Ngosss = ({ navigation }) => {
               />
             </Animatable.View>
             <Animatable.View animation="fadeIn" duration={2500} delay={400} style={styles.inputWrapper}>
-              <Text style={styles.label}>Organization Email</Text>
+              <Text style={styles.label}>Email</Text>
               <TextInput
                 style={styles.input}
-                placeholder="E-mail"
+                placeholder="abc@gmail.com"
                 placeholderTextColor="#00000087"
                 onChangeText={(text) => setEmail(text)}
                 keyboardType="email-address"
               />
             </Animatable.View>
             <Animatable.View animation="fadeIn" duration={2000} delay={600} style={styles.inputWrapper}>
-              <Text style={styles.label}>Organization Mobile Number</Text>
+              <Text style={styles.label}>Mobile Number</Text>
               <TextInput
                 style={styles.input}
-                placeholder="Mobile number"
+                placeholder="9818XXXXXX"
                 placeholderTextColor="#00000087"
                 onChangeText={(text) => setMobileNumber(text)}
                 keyboardType="phone-pad"
               />
             </Animatable.View>
             <Animatable.View animation="fadeIn" duration={2000} delay={800} style={styles.inputWrapper}>
-              <Text style={styles.label}>Organization Address</Text>
+              <Text style={styles.label}>Address</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Address"
@@ -127,7 +128,7 @@ const Ngosss = ({ navigation }) => {
                 onChangeText={(text) => setAddress(text)}
               />
             </Animatable.View>
-            <Animatable.View animation="fadeIn" duration={2000} delay={1000} style={styles.inputWrapper}>
+            {/* <Animatable.View animation="fadeIn" duration={2000} delay={1000} style={styles.inputWrapper}>
               <Text style={styles.label}>Organization City</Text>
               <TextInput
                 style={styles.input}
@@ -135,8 +136,8 @@ const Ngosss = ({ navigation }) => {
                 placeholderTextColor="#00000087"
                 onChangeText={(text) => setCity(text)}
               />
-            </Animatable.View>
-            <Animatable.View animation="fadeIn" duration={2000} delay={1200} style={styles.inputWrapper}>
+            </Animatable.View> */}
+            {/* <Animatable.View animation="fadeIn" duration={2000} delay={1200} style={styles.inputWrapper}>
               <Text style={styles.label}>Organization State</Text>
               <TextInput
                 style={styles.input}
@@ -144,9 +145,9 @@ const Ngosss = ({ navigation }) => {
                 placeholderTextColor="#00000087"
                 onChangeText={(text) => setState(text)}
               />
-            </Animatable.View>
+            </Animatable.View> */}
             <Animatable.View animation="fadeIn" duration={2000} delay={1400} style={styles.inputWrapper}>
-              <Text style={styles.label}>Organization Pincode</Text>
+              <Text style={styles.label}>Pincode</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Pincode"
@@ -156,7 +157,7 @@ const Ngosss = ({ navigation }) => {
               />
             </Animatable.View>
             <Animatable.View animation="fadeIn" duration={2000} delay={1600} style={styles.inputWrapper}>
-              <Text style={styles.label}>Share Anything (Optional)</Text>
+              <Text style={styles.label}>What you want to Donate</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Share anything (Optional)"
@@ -169,10 +170,10 @@ const Ngosss = ({ navigation }) => {
           <Animatable.View animation="fadeIn" duration={2000} delay={1800} style={styles.buttonContainer}>
             <View style={styles.buttonsColumn}>
               <TouchableOpacity style={styles.donateButton} onPress={handleDonatePress}>
-                <Text style={styles.buttonText}>Ready to Collect</Text>
+                <Text style={styles.buttonText}>Donate</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.textButton} onPress={() => navigation.navigate('First')}>
+              <TouchableOpacity style={styles.textButton} onPress={() => navigation.navigate('ButtonContainer')}>
                 <Text style={styles.buttonText}>Skip</Text>
               </TouchableOpacity>
             </View>
@@ -199,6 +200,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     marginTop: StatusBar.currentHeight,
     marginBottom:'9%',
+
   },
   image: {
     width: width,
@@ -206,16 +208,16 @@ const styles = StyleSheet.create({
     marginTop:'25%',
     resizeMode: 'cover',
     borderWidth: 4,
-    borderRadius:40,
-    borderColor: '#8e1294',
+    borderRadius:70,
+    borderColor: '#3f373fff',
   },
   textOverlay: {
     position: 'absolute',
     top: '53%',
     borderRadius:40,
-    backgroundColor:'#83539170',
+    backgroundColor:'#3e393f70',
     height:'70%',
-    left: '51.5%',
+    left: '52%',
     transform: [{ translateX: -width * 0.5 }, { translateY: -height * 0.1 }],
     alignItems: 'center',
   },

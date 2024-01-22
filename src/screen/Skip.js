@@ -274,7 +274,7 @@ const Skip = ({ navigation }) => {
               <TouchableOpacity onPress={initiatePayment} style={styles.payNowButton}>
             <Text style={styles.payNowButtonText}>Donate with UPI</Text>
           </TouchableOpacity>
-          <Text onPress={() => navigation.navigate('First')} style={styles.buttonText2}>Skip</Text>
+          <Text onPress={() => navigation.navigate('ButtonContainer')} style={styles.buttonText2}>Skip</Text>
             </View>
           </Animatable.View>
        </ScrollView>

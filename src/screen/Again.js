@@ -63,17 +63,19 @@ const Again = () => {
                   </Text>
 
                   <View style={{ marginTop: 20 }}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Ngos2')}>
+
+                  <TouchableOpacity onPress={() => navigation.navigate('Ngos2')}>
+                      <View style={buttonStyles}>
+                        <Text style={buttonTextStyles}>Do you want to donate / find NGO?</Text>
+                      </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Ngosss')}>
                       <View style={buttonStyles}>
                         <Text style={buttonTextStyles}>Are you an NGO?</Text>
                       </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => navigation.navigate('Skip')}>
-                      <View style={buttonStyles}>
-                        <Text style={buttonTextStyles}>Do you want to donate / find NGO?</Text>
-                      </View>
-                    </TouchableOpacity>
+                  
                   </View>
                 </View>
               </View>

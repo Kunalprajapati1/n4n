@@ -25,6 +25,8 @@ import Faltu from '../n4n/src/screen/Faltu';
 import ProductDetail from '../n4n/src/screen/ProductDetail';
 import Hover from '../n4n/src/screen/Hover';
 import Ngos2 from './src/screen/Ngos2';
+import Front from './src/screen/Front';
+import ButtonContainer from './src/screen/ButtonContainer';
 
 
 
@@ -61,6 +63,9 @@ export default function App() {
         <Stack.Screen name="ProductDetail" component={ProductDetail} />
         <Stack.Screen name="Hover" component={Hover} />
         <Stack.Screen name="Ngos2" component={Ngos2} />
+        <Stack.Screen name="Front" component={Front} />
+        <Stack.Screen name="ButtonContainer" component={ButtonContainer} />
+
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
